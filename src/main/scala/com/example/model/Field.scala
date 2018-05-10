@@ -2,11 +2,21 @@ package com.example.model
 
 import java.util.Date
 
-class Field[+T](clazz: Class[T], val name: String)
+trait Field {
 
-//case class StringField(name: String) extends Field[String]
-//
-//case class DateField(name: String) extends Field[Date]
+  def clazz: Class[_]
+
+  def name: String
+}
+
+case class StringField(name: String) extends Field {
+  override def clazz: Class[_] = classOf[String]
+}
+
+case class DateField(name: String) extends Field {
+  override def clazz: Class[_] = classOf[Date]
+}
+
 //
 //case class FloatField(name: String) extends Field[Float]
 //
@@ -16,6 +26,7 @@ class Field[+T](clazz: Class[T], val name: String)
 //
 //case class SeqStringField(name: String) extends Field[Seq[String]]
 
+/*
 object Field {
   def apply(fieldName: String): Field[String] = {
     new Field[String](classOf[String], fieldName)
@@ -45,3 +56,4 @@ object Field {
     new Field[Integer](classOf[Integer], fieldName)
   }
 }
+*/
