@@ -29,7 +29,7 @@ object RedmineField {
   val targetVersion = Field.string("Target Version")
   val priority = Field.integer("Priority")
 
-  def fields: List[Field[Any]] = List(author,
+  def fields: List[Field] = List(author,
     category,
     summary,
     description,
@@ -45,11 +45,11 @@ object RedmineField {
     targetVersion,
     priority)
 
-  def fieldsAsJava(): util.List[Field[Any]] = fields.asJava
+  def fieldsAsJava(): util.List[Field] = fields.asJava
 
   // id field is not in the suggested list because typically
   // id from one system cannot be directly used as id in another system.
-  def suggestedStandardFields: Map[Field[Any], StandardField[Any]] = Map(
+  def suggestedStandardFields: Map[Field, StandardField] = Map(
     author -> Reporter,
     category -> Components,
     summary -> Summary, description -> Description, taskType -> TaskType,
@@ -64,7 +64,7 @@ object RedmineField {
     targetVersion -> TargetVersion,
     priority -> Priority)
 
-  def getSuggestedCombinations(): Map[Field[Any], StandardField[Any]] = {
+  def getSuggestedCombinations(): Map[Field, StandardField] = {
     suggestedStandardFields
   }
 }

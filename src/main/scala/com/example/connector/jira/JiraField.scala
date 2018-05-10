@@ -34,11 +34,11 @@ object JiraField {
     dateCreated,
     dueDate, priority)
 
-  def fieldsAsJava(): util.List[Field[Any]] = fields.asJava
+  def fieldsAsJava(): util.List[Field] = fields.asJava
 
   // id field is not in the suggested list because typically
   // id from one system cannot be directly used as id in another system.
-  private def suggestedStandardFields : Map[Field[Any], StandardField[Any]] = Map(summary -> Summary,
+  private def suggestedStandardFields : Map[Field, StandardField] = Map(summary -> Summary,
     component -> Components,
     description -> Description, taskType -> TaskType,
     // estimated time is not a part of standard JIRA 7 anymore
@@ -52,7 +52,7 @@ object JiraField {
     dueDate -> DueDate,
     priority -> Priority)
 
-  def getSuggestedCombinations(): Map[Field[Any], StandardField[Any]] = {
+  def getSuggestedCombinations(): Map[Field, StandardField] = {
     suggestedStandardFields
   }
 }

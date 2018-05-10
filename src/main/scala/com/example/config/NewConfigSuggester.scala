@@ -15,13 +15,13 @@ object NewConfigSuggester {
   /**
     * try to match list of fields for connector 1 with the list for connector 2.
     */
-  def suggestedFieldMappingsForNewConfig(map1: Map[Field[Any], StandardField[Any]],
-                                         map2: Map[Field[Any], StandardField[Any]]): List[FieldMapping] = {
+  def suggestedFieldMappingsForNewConfig(map1: Map[Field, StandardField],
+                                         map2: Map[Field, StandardField]): List[FieldMapping] = {
     val result = scala.collection.mutable.ListBuffer[FieldMapping]()
 
     map1.values.foreach{ standardField =>
-      val field1 : Field[Any] = map1.find(i => i._2 == standardField).map(e => e._1).getOrElse(Field.string(""))
-      val field2 : Field[Any] = map2.find(i => i._2 == standardField).map(e => e._1).getOrElse(Field.string(""))
+      val field1 : Field = map1.find(i => i._2 == standardField).map(e => e._1).getOrElse(Field.string(""))
+      val field2 : Field = map2.find(i => i._2 == standardField).map(e => e._1).getOrElse(Field.string(""))
       val selected = field1.name != "" && field2.name!= ""
       result += FieldMapping(field1, field2, selected, "")
     }
@@ -29,7 +29,7 @@ object NewConfigSuggester {
 
     remainingConnector2Fields.foreach{ field2 =>
       val standardFor2 = map2(field2)
-      val field1 : Field[Any] = map1.find(i => i._2 == standardFor2).map(e => e._1).getOrElse(Field.string(""))
+      val field1 : Field = map1.find(i => i._2 == standardFor2).map(e => e._1).getOrElse(Field.string(""))
       val selected = field1.name != "" && field2.name!= ""
       result += FieldMapping(field1, field2, selected, "")
     }

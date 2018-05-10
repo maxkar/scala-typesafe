@@ -22,7 +22,7 @@ final class GTask() {
 
   def getValue(field: GTaskDescriptor.FIELD): Any = getValue(field.name)
 
-  def getValue[T](field: Field[T]): T = getValue(field.name).asInstanceOf[T]
+  def getValue[T](field: Field): T = getValue(field.name).asInstanceOf[T]
 
   def getValue(field: String): Any = fields.get(field)
 
@@ -32,7 +32,7 @@ final class GTask() {
   //    I definitely have shown you this technique (attributes in lpg).
   def setValue(field: GTaskDescriptor.FIELD, value: Any): Unit = fields.put(field.name, value)
 
-  def setValue[T](field: Field[T], value: T): Unit = fields.put(field.name, value)
+  def setValue[T](field: Field, value: T): Unit = fields.put(field.name, value)
 
   /**
     * Unsafe way of setting fields. Used mostly for custom fields where we don't know their types.

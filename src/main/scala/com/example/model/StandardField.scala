@@ -2,7 +2,7 @@ package com.example.model
 
 import java.util.Date
 
-sealed trait StandardField[+T]
+sealed trait StandardField
 
 /**
   * A Key to uniquely identify a Task in the native system (Redmine, JIRA, etc).
@@ -11,39 +11,39 @@ sealed trait StandardField[+T]
   */
 //case object Key extends StandardField
 
-case object Assignee extends StandardField[GUser]
+case object Assignee extends StandardField
 
 /**
   * Save this as Seq[String]
   */
-case object Components extends StandardField[Seq[String]]
+case object Components extends StandardField
 
-case object Reporter extends StandardField[GUser]
+case object Reporter extends StandardField
 
-case object ClosedOn extends StandardField[Date]
+case object ClosedOn extends StandardField
 
-case object CreatedOn extends StandardField[Date]
+case object CreatedOn extends StandardField
 
-case object EstimatedTime extends StandardField[Float]
+case object EstimatedTime extends StandardField
 
-case object Description extends StandardField[String]
+case object Description extends StandardField
 
-case object DoneRatio extends StandardField[Float]
+case object DoneRatio extends StandardField
 
-case object DueDate extends StandardField[Date]
+case object DueDate extends StandardField
 
 //case object Id extends StandardField
 
-case object Priority extends StandardField[Integer]
+case object Priority extends StandardField
 
-case object StartDate extends StandardField[Date]
+case object StartDate extends StandardField
 
-case object Summary extends StandardField[String]
+case object Summary extends StandardField
 
-case object TaskType extends StandardField[String]
+case object TaskType extends StandardField
 
-case object TaskStatus extends StandardField[String]
+case object TaskStatus extends StandardField
 
-case object TargetVersion extends StandardField[String]
+case object TargetVersion extends StandardField
 
-case object UpdatedOn extends StandardField[Date]
+case object UpdatedOn extends StandardField
