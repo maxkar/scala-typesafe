@@ -1,0 +1,25 @@
+apply plugin: 'scala'
+
+group 'com.alexey'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    circeVersion = "0.8.0"
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.12.2'
+
+    compile "io.circe:circe-core_2.12:$circeVersion"
+    compile "io.circe:circe-generic_2.12:$circeVersion"
+    compile "io.circe:circe-parser_2.12:$circeVersion"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'org.scalatest:scalatest_2.12:3.0.0'
+}
