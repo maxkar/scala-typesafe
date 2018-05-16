@@ -15,6 +15,7 @@ object NewConfigSuggester {
   /**
     * try to match list of fields for connector 1 with the list for connector 2.
     */
+/*
   def suggestedFieldMappingsForNewConfig(map1: Map[Field, StandardField],
                                          map2: Map[Field, StandardField]): List[FieldMapping] = {
     val result = scala.collection.mutable.ListBuffer[FieldMapping]()
@@ -36,4 +37,5 @@ object NewConfigSuggester {
 
     result.toList
   }
+*/
 }

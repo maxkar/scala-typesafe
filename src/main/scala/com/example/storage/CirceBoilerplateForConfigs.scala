@@ -11,9 +11,9 @@ object CirceBoilerplateForConfigs {
   implicit val dateDecoder: Decoder[DateField] = deriveDecoder[DateField]
   implicit val dateEncoder: Encoder[DateField] = deriveEncoder[DateField]
 
-  implicit val fieldDecoder: Decoder[Field] = deriveDecoder[Field]
-  implicit val fieldEncoder: Encoder[Field] = deriveEncoder[Field]
+  implicit val fieldDecoder: Decoder[Field[_]] = deriveDecoder[Field[_]]
+  implicit val fieldEncoder: Encoder[Field[_]] = deriveEncoder[Field[_]]
 
-  implicit val fooDecoder: Decoder[FieldMapping] = deriveDecoder[FieldMapping]
-  implicit val fooEncoder: Encoder[FieldMapping] = deriveEncoder[FieldMapping]
+  implicit val fooDecoder: Decoder[FieldMapping[_]] = deriveDecoder[FieldMapping[_]]
+  implicit val fooEncoder: Encoder[FieldMapping[_]] = deriveEncoder[FieldMapping[_]]
 }
