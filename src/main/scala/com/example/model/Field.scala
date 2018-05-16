@@ -2,7 +2,7 @@ package com.example.model
 
 import java.util.Date
 
-abstract class Field {
+sealed abstract class Field {
   def clazz: Class[_]
 
   def name: String
