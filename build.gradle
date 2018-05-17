@@ -10,7 +10,7 @@ repositories {
 }
 
 ext {
-    circeVersion = "0.8.0"
+    circeVersion = "0.9.3"
 }
 
 dependencies {
