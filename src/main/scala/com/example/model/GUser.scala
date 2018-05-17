@@ -1,3 +1,3 @@
 package com.example.model
 
-case class GUser(id: Int, loginName: String, displayName: String)
+case class GUser(id: Integer, loginName: String, displayName: String)
