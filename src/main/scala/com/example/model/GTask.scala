@@ -26,12 +26,6 @@ final class GTask() {
     this
   }
 
-  def getIdentity: TaskId = {
-    var id = getId
-    if (id == null) id = 0L
-    TaskId(id, getKey)
-  }
-
   /**
     * Like database ID for Redmine and Jira and Unique ID (row number) for MSP.
     */
