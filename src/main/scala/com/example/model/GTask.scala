@@ -11,14 +11,6 @@ final class GTask() {
   setChildren(new util.ArrayList[GTask]())
   setRelations(new util.ArrayList[GRelation]())
 
-  /**
-    * Copy-constructor creating a shallow clone.
-    */
-  def this(taskToClone: GTask) {
-    this()
-    fields.putAll(taskToClone.fields)
-  }
-
   def getValue[T](field: Field[T]): T = fields.get(field).asInstanceOf[T]
 
   def setValue[T](field: Field[T], value: T): GTask = {
