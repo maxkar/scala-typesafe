@@ -2,13 +2,8 @@ package com.example.storage
 
 import java.io.File
 
-import io.circe.Json
-import io.circe.generic.auto._
-import io.circe.parser._
-import io.circe.syntax._
-
-import scala.collection.JavaConverters._
 import com.example.storage.CirceBoilerplateForConfigs._
+import io.circe.syntax._
 
 class ConfigStorage(folder: File) {
 

@@ -1,7 +1,9 @@
 package com.example.config
 
-import com.example.model.{DateField, FieldMapping, StringField}
-import com.example.storage.{ConfigStorage, SetupId, UISyncConfig}
+import java.util.Date
+
+import com.example.model.{CustomDate, CustomString, FieldMapping}
+import com.example.storage.{ConfigStorage, UISyncConfig}
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.{FunSpec, Matchers}
@@ -15,8 +17,8 @@ class ConfigStorageTest extends FunSpec with Matchers with ConfigsTempFolder {
     withTempFolder { folder =>
       val storage = new ConfigStorage(folder)
       val mappings = Seq(
-        FieldMapping(StringField("str"), StringField("another"), true, "default"),
-        FieldMapping(DateField("date1"), DateField("date2"), true, "default")
+        FieldMapping(CustomString("str"), CustomString("another"), true, "default"),
+        FieldMapping(CustomDate("date1"), CustomDate("date2"), true, new Date())
       )
       val configId = storage.saveConfig(new UISyncConfig(mappings))
       //      val config = storage.getConfig(configId)
