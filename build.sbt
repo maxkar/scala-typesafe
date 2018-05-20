@@ -10,6 +10,8 @@ scalaSource in Compile := baseDirectory.value / "src"
 
 scalaSource in Test := baseDirectory.value / "test"
 
+scalacOptions ++= Seq("-deprecation", "-feature")
+
 libraryDependencies ++= Seq(
   "ru.maxkar" %% "lib-json" % "0.0.4",
 
